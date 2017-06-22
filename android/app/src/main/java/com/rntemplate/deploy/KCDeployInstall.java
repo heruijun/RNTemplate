@@ -5,6 +5,10 @@ import com.rntemplate.constants.FileConstant;
 import com.rntemplate.debug.KCLog;
 import com.rntemplate.download.KCDownloadListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
@@ -19,6 +23,27 @@ public class KCDeployInstall {
 
     KCDeployInstall(KCDeploy deploy) {
         mKCDeploy = deploy;
+    }
+
+    public void check() {
+        // http://192.168.60.104:8006/mogoroom-papp/common/getAppFinalPackage
+        try {
+            JSONObject jsonParams = new JSONObject();
+            try {
+                jsonParams.put("versionName", "2.2.1");
+                jsonParams.put("buildCode", "11");
+                jsonParams.put("platform", "android");
+                jsonParams.put("channelId", "umeng");
+                JSONArray jsonArray = new JSONArray();
+                jsonArray.put(new JSONObject().put("id", 0).put("version", "1.0.1"));
+                jsonParams.put("list", jsonArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            String body = jsonParams.toString();
+        } catch (Exception e) {
+        }
+        // KerNet.newRequestRunner(null).startAsyn(request);
     }
 
     public void installRN() {

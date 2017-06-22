@@ -69,6 +69,5 @@ public class FileConstant {
      * 下载URL
      */
     public static final String JS_BUNDLE_REMOTE_URL = "http://192.168.86.93:8080/" + ZIP_NAME + ".zip";
-    // public static final String JS_BUNDLE_REMOTE_URL = "https://raw.githubusercontent.com/heruijun/MyReactNativeApp/rnruntime/android/partner.zip";
 
 }
