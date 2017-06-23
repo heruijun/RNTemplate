@@ -13,6 +13,7 @@ import {
   View
 } from 'react-native';
 import LocalImg from './img'
+import Permissions from 'react-native-permissions'
 
 export default class RNTemplate extends Component {
   constructor(props) {
